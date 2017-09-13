@@ -1,38 +1,64 @@
 package myArrayList.util;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
+//import java.io.BufferedWriter;
+import java.io.FileReader;
+//import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class FileProcessor {
 	
-	public static void main(String args[]) throws IOException
-	{
-		try{
-			FileInputStream fstream = new FileInputStream("input.txt");
-			DataInputStream in = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			readLine(br);
-		}
-		catch(Exception e){
-			System.err.println("Error: " + e.getMessage());
-		}
-		
-		
-	}
-
-	private static String readLine(BufferedReader br) throws IOException {
-		
-		String line = null;
-		while ((line = br.readLine()) != null) {
-			System.out.println(line);
+	private FileReader fr;
+	private BufferedReader br;
+	//private FileWriter fw;
+	//private BufferedWriter bw;
+	
+	public FileProcessor(String input,String output){
+		try {
+			fr = new FileReader(input);
+			br = new BufferedReader(fr);
+			
+			//fw = new FileWriter(output);
+			//bw = new BufferedWriter(fw);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		br.close();
-		return line;	
+		
 	}
 	
+	public String ReadLine() throws IOException {
+		String temp=null;
+		if((temp=br.readLine())!=null)
+		return temp;
+		else{
+			temp=null;
+			return temp;
+		}
+		}
+	
+	
+	protected void finalize() throws Throwable {
+	     try {
+	         br.close();        // close open files
+	     } finally {
+	         super.finalize();
+	     }
+	 }
 		
-}
+	//public String writetoFile(){
+	//	bw.write();
+	//	}
+		
+	/*public void close(){
+		try {
+			br.close();
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}	
+
