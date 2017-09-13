@@ -13,11 +13,6 @@ public class MyArrayList {
 		myArray = new Integer[currentSize];
 	}
 
-	/*
-	 * public int get(int index){ if(index < initSize){ return myArray[index]; }
-	 * else { throw new ArrayIndexOutOfBoundsException(); } }
-	 */
-
 	public void insertSorted(int val) {
 		if (size() == currentSize) {
 			resize();
@@ -78,4 +73,13 @@ public class MyArrayList {
 		}
 		return currentSize;
 	}
+	
+	public String toString(){
+		String s = "";
+		for(int i=0; i < myArray.length; i++){
+			s += "Element" +i + ":" + myArray[i];
+		}
+		return s;
+		
+		}
 }
