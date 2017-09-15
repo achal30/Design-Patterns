@@ -7,8 +7,19 @@ import myArrayList.test.MyArrayListTest;
 import myArrayList.util.FileProcessor;
 import myArrayList.util.Results;
 
+/**
+ * 
+ * @author Achal
+ *
+ */
 public class Driver {
+	
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[]) {
+		
 		try {
 			MyArrayList list = new MyArrayList();
 			FileProcessor fp = new FileProcessor(args[0], args[1]);
