@@ -4,9 +4,21 @@ import java.io.IOException;
 import myArrayList.MyArrayList;
 import myArrayList.util.Results;
 
+
+/**
+ * 
+ * @author Achal
+ *
+ */
 public class MyArrayListTest {
 	private MyArrayList list;
 
+	/**
+	 * 
+	 * @param listIn
+	 * @param result
+	 * @throws IOException
+	 */
 	public void testMe(MyArrayList listIn, Results result) throws IOException {
 		list = listIn;
 		result.storeNewResult("assert resize", assertResize());
@@ -21,6 +33,10 @@ public class MyArrayListTest {
 		result.storeNewResult("assert to string", assertToString());
 	}
 
+	/**
+	 * testcase that checks whether the array size increases by 50% or not.
+	 * @return
+	 */
 	public boolean assertResize() {
 		for (int i = 0; i < 51; i++) {
 			list.insertSorted(i);
@@ -31,6 +47,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks for the sum of the elements of the array.
+	 * @return
+	 */
 	public boolean assertSum() {
 		list = new MyArrayList();
 		for (int i = 0; i < 10; i++) {
@@ -42,6 +62,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if the correct index of the element is returned.
+	 * @return
+	 */
 	public boolean assertIndex() {
 		list = new MyArrayList();
 		list.insertSorted(100);
@@ -51,6 +75,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if it returns the first occurence of index of repeating elements.
+	 * @return
+	 */
 	public boolean assertMultiIndex() {
 		list = new MyArrayList();
 		list.insertSorted(100);
@@ -61,6 +89,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if the element is removed.
+	 * @return
+	 */
 	public boolean assertRemoval() {
 		list = new MyArrayList();
 		list.insertSorted(100);
@@ -71,6 +103,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if all the occurences of given value is removed.
+	 * @return
+	 */
 	public boolean assertMultiRemoval() {
 		list = new MyArrayList();
 		list.insertSorted(100);
@@ -84,6 +120,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks for the initialization of size of array.
+	 * @return
+	 */
 	public boolean assertInitialization() {
 		list = new MyArrayList();
 		if (list.actualSize() == 50) {
@@ -92,6 +132,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if the list is sorted in ascending order or not.
+	 * @return
+	 */
 	public boolean assertIsSorted() {
 		list = new MyArrayList();
 		list.insertSorted(10);
@@ -105,6 +149,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks for the size of array
+	 * @return
+	 */
 	public boolean assertSize() {
 		list = new MyArrayList();
 		for (int i = 0; i < 10; i++) {
@@ -117,6 +165,10 @@ public class MyArrayListTest {
 		return false;
 	}
 
+	/**
+	 * checks if the toString method outputs the string.
+	 * @return
+	 */
 	public boolean assertToString() {
 		list = new MyArrayList();
 		list.insertSorted(100);
