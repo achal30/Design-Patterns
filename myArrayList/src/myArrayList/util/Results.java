@@ -6,6 +6,10 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 
 	private FileProcessor fp;
 
+	/**
+	 * 
+	 * @param fpIn
+	 */
 	public Results(FileProcessor fpIn) {
 
 		fp = fpIn;
@@ -27,7 +31,13 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 		// TODO Auto-generated method stub
 
 	}
-	
+
+	/**
+	 * returns the testname and if it passed or failed.
+	 * @param testName
+	 * @param result
+	 * @throws IOException
+	 */
 	public void storeNewResult(String testName, boolean result) throws IOException{
 		if(result){
 			fp.write("test "+testName+" passed");
