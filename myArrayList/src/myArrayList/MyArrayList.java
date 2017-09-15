@@ -24,7 +24,7 @@ public class MyArrayList {
 
 	public void removeValue(int val) {
 		for (int i = 0; i < myArray.length; i++) {
-			if(myArray[i]==null){
+			if (myArray[i] == null) {
 				break;
 			}
 			if (myArray[i] == val) {
@@ -37,6 +37,9 @@ public class MyArrayList {
 	public int indexOf(int value) {
 
 		for (int i = 0; i < myArray.length; i++) {
+			if(myArray[i] == null){
+				break;
+			}
 			if (myArray[i] == value) {
 				return i;
 			}
@@ -47,7 +50,7 @@ public class MyArrayList {
 	public int sum() {
 		int sum = 0;
 		for (int i = 0; i < myArray.length; i++) {
-			if(myArray[i] == null){
+			if (myArray[i] == null) {
 				break;
 			}
 			sum += myArray[i];
@@ -63,6 +66,7 @@ public class MyArrayList {
 		}
 		myArray = temp;
 		currentSize = newLength;
+		//System.out.println("new size: " + myArray.length);
 	}
 
 	public int size() {
@@ -74,12 +78,20 @@ public class MyArrayList {
 		return currentSize;
 	}
 	
-	public String toString(){
+	// helper method for testCase
+	public int actualSize(){
+		return currentSize;
+	}
+
+	public String toString() {
 		String s = "";
-		for(int i=0; i < myArray.length; i++){
-			s += "Element" +i + ":" + myArray[i];
+		for (int i = 0; i < myArray.length; i++) {
+			if(myArray[i] == null){
+				break;
+			}
+			s += "Element " + i + " : " + myArray[i] + "\n";
 		}
 		return s;
-		
-		}
+
+	}
 }
