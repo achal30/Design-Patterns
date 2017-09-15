@@ -4,7 +4,13 @@ import java.util.Comparator;
 
 public class MyArrayListComparator implements Comparator<Integer> {
 
+
 	@Override
+
+	/**
+	 * compares the integer and returns accordingly.
+	 * @return 
+	 */
 	public int compare(Integer o1, Integer o2) {
 		if(o1==null){
 			return 1;
