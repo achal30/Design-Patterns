@@ -1,26 +1,40 @@
 package myArrayList.driver;
 
+import java.io.IOException;
+
 import myArrayList.MyArrayList;
+import myArrayList.test.MyArrayListTest;
+import myArrayList.util.FileProcessor;
+import myArrayList.util.Results;
 
 public class Driver {
-	public static void main(String args[])
-	{
-		MyArrayList list = new MyArrayList();
-		
-		list.insertSorted(10);
-		list.insertSorted(20);
-		list.insertSorted(5);
-		list.insertSorted(35);
-		list.insertSorted(8);
-		list.insertSorted(23);
-		list.insertSorted(10);
-		list.insertSorted(10);
-		list.insertSorted(15);
-		list.insertSorted(50);
-		list.insertSorted(1000);
-		//list.removeValue(23);
-		System.out.println(list.size());
-		System.out.println(list.sum());
-		
+	public static void main(String args[]) {
+		try {
+			MyArrayList list = new MyArrayList();
+			FileProcessor fp = new FileProcessor(args[0], args[1]);
+			Results result = new Results(fp);
+			String line;
+			if (args == null || args.length != 2) {
+				System.out.println("Invalid number of arguments");
+				System.exit(1);
+			}
+
+			while ((line = fp.ReadLine()) != null) {
+				try {
+					list.insertSorted(Integer.parseInt(line));
+				} catch (NumberFormatException nfe) {
+					System.err.println(nfe.getMessage());
+					System.exit(1);
+				}
+			}
+			result.writeToFile("The sum of all the values in arrayList is: " + list.sum());
+			MyArrayListTest test = new MyArrayListTest();
+			test.testMe(new MyArrayList(), result);
+			fp.close();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+			System.exit(1);
+		}
 	}
+
 }
